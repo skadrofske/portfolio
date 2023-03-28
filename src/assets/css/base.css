@@ -1,0 +1,76 @@
+* {
+    font-family: 'Manrope', sans-serif;
+}
+
+body, html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+section {
+    margin-top: 150px;
+}
+
+.nav-placeholder {
+    height: calc(100vh / 4);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 999px;
+    transition: .3s ease;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  #blob {
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+    height: 40vw;
+    width: 40vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    animation: blob 15s linear infinite, rotate 30s infinite;
+    /* filter: blur(150px); */
+    opacity: .5;
+    z-index: -2;
+  }
+
+  @keyframes blob {
+    0%   {border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;}
+    25%  {border-radius: 70% 30% 32% 68% / 30% 30% 70% 70%;}
+    50%  {border-radius: 50% 50% 32% 68% / 55% 24% 76% 45%;}
+    75%  {border-radius: 28% 72% 57% 43% / 79% 24% 76% 21%;}
+    100% {border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;}
+  }
+
+  @keyframes rotate {
+    from   {rotate: 0deg;}
+    to {rotate: 360deg;}
+  }
+
+  #blur {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(150px);
+    z-index: -1;
+  }

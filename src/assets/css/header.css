@@ -1,0 +1,85 @@
+header {
+    z-index: 1;
+    transition: height .7s ease, box-shadow .7s ease, background-color .2s ease;
+    height: 5rem;
+}
+
+header.scrolling-active {
+    height: 5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+    /* background-color: white; */
+    background-color: rgba(236, 236, 236, 0.118);
+    backdrop-filter: blur(10px);
+}
+
+.nav a {
+    color: var(--black);
+}
+
+a.line {
+    position: relative;
+}
+
+a.line::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: var(--black);
+    transition: .3s ease;
+}
+
+a.line:hover::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--black);
+}
+
+a.line.active::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--black);
+}
+
+.logo-item {
+    position: relative;
+}
+
+.logo-text {
+    display: block;
+    position: relative;
+}
+
+.logo-item > div:nth-child(1) span {
+    will-change: transform;
+    transform-style: preserve-3d;
+    transition: .5s;
+    transition-delay: calc(0.04s * var(--index));
+    transform-origin: bottom;
+    display: inline-block;
+}
+
+.logo-item > div:nth-child(2) span {
+    will-change: transform;
+    transform-style: preserve-3d;
+    transition: .5s;
+    transition-delay: calc(0.04s * var(--index));
+    transform-origin: top;
+    display: inline-block;
+    transform: translate3d(0, 100%, 0) rotateX(-90deg);
+}
+
+.logo-item:hover > div:nth-child(1) span {
+    transform: translate3d(0, -100%, 0) rotateX(-90deg);
+}
+
+.logo-item:hover > div:nth-child(2) span {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+}

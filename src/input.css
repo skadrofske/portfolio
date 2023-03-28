@@ -1,43 +1,12 @@
+@import "./assets/css/header.css";
+@import "./assets/css/footer.css";
+@import "./assets/css/home.css";
+@import "./assets/css/projects.css";
+@import "./assets/css/about.css";
+@import "./assets/css/base.css";
+@import "./assets/css/typography.css";
+@import "./assets/css/variables.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-* {
-    font-family: 'Manrope', sans-serif;
-}
-h1 {
-    font-size: clamp(48px, 10vw, 128px);
-}
-
-header {
-    z-index: 1;
-}
-
-section {
-    margin-top: 200px;
-}
-
-.nav-placeholder {
-    height: calc(100vh / 4);
-}
-
-.project-container a {
-    opacity: 0;
-    background-color: rgba(0, 0, 0, .5);
-    transition: .3s ease;
-}
-
-.project-container a:hover {
-    opacity: 1;
-    transition: .3s ease;
-}
-
-.project-container i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid white;
-    border-radius: 200px;
-    height: 100px;
-    width: 100px;
-}

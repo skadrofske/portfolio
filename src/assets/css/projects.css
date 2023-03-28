@@ -1,0 +1,144 @@
+.project-grid {
+    grid-auto-rows: minmax(400px, 35vw);
+}
+
+.project-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform-style: preserve-3d;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.project-container a {
+    opacity: 0;
+    transition: .3s ease;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.project-container:hover a {
+    opacity: 1;
+    transition: .3s ease;
+}
+
+/* .project-container a:hover {
+    
+} */
+
+@media screen and (max-width: 768px) {
+    .span-2 {
+        grid-row: unset;
+    }
+
+    .span-2-col {
+        grid-column: unset;
+    }
+}
+
+.span-2 {
+    grid-row: span 2;
+}
+
+.span-2-col {
+    grid-column: span 2;
+}
+
+.modal {
+    top: calc(100% + 20px);
+    transition: .5s ease;
+    background-color: var(--black);
+}
+
+.modal.open {
+    top: 0;
+}
+
+.close {
+    transition: .3s linear;
+    height: 50px;
+    aspect-ratio: 1/1;
+    gap: 5px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid var(--black);
+    transition: .3s ease;
+}
+
+.close:hover {
+    width: auto;
+    aspect-ratio: unset;
+    padding: .5rem 1rem;
+    background-color: var(--black);
+    transition: .3s ease;
+}
+
+.close::after {
+    font-family: FontAwesome;
+    content: "\f060";
+    display: inline-block;
+    color: var(--black);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+
+.close:hover::after {
+    display: none;
+}
+
+.close .text {
+    max-width: 0px;
+    opacity: 0;
+    color: white;
+    transition: width .3s ease;
+}
+
+.close:hover .text {
+    max-width: 100px;
+    opacity: 1;
+}
+
+.load-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.loading-screen {
+    position: relative;
+    background-color: var(--black);
+    width: 100%;
+    height: 0%;
+}
+
+.swiper-wrapper {
+    height: 38rem;
+}
+
+.section-title {
+    background: linear-gradient(90deg,var(--primary), var(--primary) 5%,transparent);
+    padding: 10rem 2rem;
+}
+
+.section-title .h2 {
+    font-size: 3rem;
+}
+
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+    height: 2px;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: var(--secondary);
+}
