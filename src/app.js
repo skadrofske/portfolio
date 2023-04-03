@@ -73,24 +73,24 @@ $(document).ready(function () {
         })
     }
 
-    function pageTranstion() {
-        var tl = gsap.timeline();
+    // function pageTranstion() {
+    //     var tl = gsap.timeline();
 
-        tl.to(".loading-screen", {
-            duration: .7,
-            height: "100%",
-            top: "0",
-            ease: "Expo.easeInOut"
-        })
+    //     tl.to(".loading-screen", {
+    //         duration: .7,
+    //         height: "100%",
+    //         top: "0",
+    //         ease: "Expo.easeInOut"
+    //     })
 
-        tl.to(".loading-screen", {
-            duration: .7,
-            height: "0",
-            top: "0",
-            ease: "Expo.easeInOut",
-            delay: 0.2
-        })
-    }
+    //     tl.to(".loading-screen", {
+    //         duration: .7,
+    //         height: "0",
+    //         top: "0",
+    //         ease: "Expo.easeInOut",
+    //         delay: 0.2
+    //     })
+    // }
 
     // function contentAnimation() {
     //     var tl = gsap.timeline();
