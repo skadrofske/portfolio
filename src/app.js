@@ -3,59 +3,65 @@ $(document).ready(function () {
     const blob = document.getElementById("blob")
 
     document.body.onpointermove = event => {
-        const { pageX, pageY } = event
-        console.log(pageY)
-        blob.animate({
-            left: `${pageX}px`,
-            top: `${pageY}px`
-        }, {duration: 3000, fill: "forwards"})
+        if(blob) {
+            const { pageX, pageY } = event
+            blob.animate({
+                left: `${pageX}px`,
+                top: `${pageY}px`
+            }, {duration: 3000, fill: "forwards"})
+        }
     }
 
     const textWrapper = document.querySelector(".title");
+    if(textWrapper) {
         textWrapper.innerHTML = textWrapper.textContent.replace(
-        /\S/g,
-        "<span class='letter'>$&</span>"
-    );
+            /\S/g,
+            "<span class='letter'>$&</span>"
+        );
 
-    anime.timeline().add({
-        targets: ".title .letter",
-        translateY: [100, 0],
-        translateZ: 0,
-        opacity: [0, 1],
-        easing: "easeOutExpo",
-        duration: 2000,
-        delay: (el, i) => 500 + 40 * i,
-    });
+        anime.timeline().add({
+            targets: ".title .letter",
+            translateY: [100, 0],
+            translateZ: 0,
+            opacity: [0, 1],
+            easing: "easeOutExpo",
+            duration: 2000,
+            delay: (el, i) => 500 + 40 * i,
+        });
+    
+        anime.timeline().add({
+            targets: ".flip",
+            translateY: [100, 0],
+            translateZ: 0,
+            opacity: [0, 1],
+            easing: "easeOutExpo",
+            duration: 2000,
+            delay: (el, i) => 1000,
+        });
+    
+        anime.timeline().add({
+            targets: "#blob",
+            opacity: [0, .6],
+            easing: "easeOutExpo",
+            duration: 3000,
+            delay: (el, i) => 3000,
+        });
+    
+        TweenMax.staggerFrom(
+            ".logo, .nav__links > a",
+            2,
+            {
+              opacity: 0,
+              y: 30,
+              ease: Expo.easeInOut,
+              delay: 1,
+            },
+            0.1
+          );
+    }
+    
 
-    anime.timeline().add({
-        targets: ".flip",
-        translateY: [100, 0],
-        translateZ: 0,
-        opacity: [0, 1],
-        easing: "easeOutExpo",
-        duration: 2000,
-        delay: (el, i) => 1000,
-    });
-
-    anime.timeline().add({
-        targets: "#blob",
-        opacity: [0, .6],
-        easing: "easeOutExpo",
-        duration: 3000,
-        delay: (el, i) => 3000,
-    });
-
-    TweenMax.staggerFrom(
-        ".logo, .nav__links > a",
-        2,
-        {
-          opacity: 0,
-          y: 30,
-          ease: Expo.easeInOut,
-          delay: 1,
-        },
-        0.1
-      );
+    
     
 
     function delay(n) {
@@ -96,29 +102,29 @@ $(document).ready(function () {
     //     })
     // }
 
-    barba.init({
-        sync: true,
+    // barba.init({
+    //     sync: true,
 
-        transitions: [{
-            async leave(data) {
-                const done = this.async();
+    //     transitions: [{
+    //         async leave(data) {
+    //             const done = this.async();
 
-                pageTranstion();
-                await delay(500);
-                done();
-            },
+    //             pageTranstion();
+    //             await delay(500);
+    //             done();
+    //         },
 
-            // async enter(data) {
-            //     contentAnimation();
-            // },
+    //         // async enter(data) {
+    //         //     contentAnimation();
+    //         // },
 
-            async once(data) {
-                pageTranstion();
-                // contentAnimation();
-            }
+    //         async once(data) {
+    //             pageTranstion();
+    //             // contentAnimation();
+    //         }
 
-          }]
-      })
+    //       }]
+    //   })
     
     const nav = document.querySelector('header')
 
@@ -141,7 +147,6 @@ $(document).ready(function () {
     let word = logoItem.children[0].children[0].innerText.split('');
     logoItem.children[0].innerHTML = '';
     word.forEach((letter, idx) => {
-        console.log(letter)
         logoItem.children[0].innerHTML += `<span style="--index: ${idx};">${letter}</span>`;
     });
     let cloneDiv = logoItem.children[0].cloneNode(true);

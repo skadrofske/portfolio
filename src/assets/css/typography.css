@@ -14,7 +14,7 @@
 
 .flip .h1 {
     display: block;
-    animation: flipWords 8s 5s infinite;
+    animation: flipWords 16s 5s infinite;
 }
 
 @keyframes flipWords {
@@ -26,7 +26,7 @@
         transform: translateY(-100%);
     }
 
-    25% {
+    35% {
         transform: translateY(-100%);
     }
 
@@ -38,7 +38,7 @@
         transform: translateY(-200%);
     }
 
-    50% {
+    60% {
         transform: translateY(-200%);
     }
 
@@ -50,7 +50,7 @@
         transform: translateY(-300%);
     }
 
-    75% {
+    85% {
         transform: translateY(-300%);
     }
 

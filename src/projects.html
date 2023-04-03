@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link href="/dist/styles.css" rel="stylesheet">
+  <link href="/portfolio/dist/styles.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,84 +18,84 @@
   <header class="header h-36 fixed w-full z-[999]">
     <nav class="nav max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-full flex place-content-between items-center">
       <div class="logo uppercase text-3xl font-medium">
-        <a href="/src/home.html" class="logo-item">
+        <a href="/portfolio/src/home.html" class="logo-item">
           <div>
             <span class="logo-text">Sam Kadrofske</span>
           </div>
         </a>
       </div>
       <div class="nav__links h-full flex items-center gap-x-6">
-        <a href="" class="uppercase text-lg font-medium line">About</a>
-        <a href="/src/projects.html" class="uppercase text-lg font-medium line">Projects</a>
+        <!-- <a href="" class="uppercase text-lg font-medium line">About</a> -->
+        <a href="/portfolio/src/projects.html" class="uppercase text-lg font-medium line">Projects</a>
       </div>
     </nav>
   </header>
 
-  <div class="load-container">
+  <!-- <div class="load-container">
     <div class="loading-screen"></div>
-  </div>
+  </div> -->
 
-  <div id="blob"></div>
-  <div id="blur"></div>
+  <!-- <div id="blob"></div>
+  <div id="blur"></div> -->
 
   <main class="" data-barba="container" data-barba-namespace="projects">
     <div class="nav-placeholder"></div>
     <section class="development max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
       <h2 class="h2 uppercase font-medium fade-in">Development</h2>
       <div class="project-grid grid lg:grid-cols-2 grid-cols-1 gap-2">
-        <div class="project-container relative col-span-2" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/bsa-dev.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
-            BSA LifeStructures
-          </a>
-        </div>
-        <div class="project-container relative span-2" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/galileo.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/galileo_thumb.jpg');">
+          <a href="/portfolio/projects/galileo.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             Galileo
           </a>
         </div>
-        <div class="project-container relative" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/nursenav.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/bsa.JPG');">
+          <a href="/portfolio/projects/bsa-dev.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+            BSA LifeStructures
+          </a>
+        </div>
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/nursenav_thumb.jpg');">
+          <a href="/portfolio/projects/nursenav.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             Nursenav
           </a>
         </div>
-        <div class="project-container relative" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/woodlund-dev.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/woodlund_thumb.jpg');">
+          <a href="/portfolio/projects/woodlund-dev.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             Woodlund
           </a>
         </div>
-        <div class="project-container relative span-2-col" style="background-image: url('/src/assets/img/galileo.JPG');">
+        <!-- <div class="project-container relative span-2-col" style="background-image: url('/src/assets/img/ww_thumb.png');">
           <a href="projects/wabashwalls-dev.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             Wabash Walls
           </a>
-        </div>
+        </div> -->
       </div>
     </section>
 
     <section class="design max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
       <h2 class="h2 uppercase font-medium">Design</h2>
       <div class="project-grid grid lg:grid-cols-2 grid-cols-1 gap-2">
-        <div class="project-container relative span-2-col" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/bsa-dev.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/bsa.JPG');">
+          <a href="/portfolio/projects/bsa-design.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             BSA LifeStructures
           </a>
         </div>
-        <div class="project-container relative" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/galileo.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/bundy_thumb.png');">
+          <a href="/portfolio/projects/bundy.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             Bundy McNear
           </a>
         </div>
-        <div class="project-container relative span-2" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/nursenav.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/kiracofe_thumb.png');">
+          <a href="/portfolio/projects/kiracofe.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             Kiracofe
           </a>
         </div>
-        <div class="project-container relative" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/woodlund-dev.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/woodlund_thumb.jpg');">
+          <a href="/portfolio/projects/woodlund-design.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             Woodlund
           </a>
         </div>
-        <div class="project-container relative span-2-col" style="background-image: url('/src/assets/img/galileo.JPG');">
-          <a href="projects/wabashwalls-dev.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
+        <div class="project-container relative" style="background-image: url('/portfolio/src/assets/img/ww_thumb.png');">
+          <a href="/portfolio/projects/wabashwalls-design.html" class="w-full h-full p-5 absolute flex items-center justify-center uppercase text-white text-4xl">
             Wabash Walls
           </a>
         </div>
@@ -106,21 +106,17 @@
 
   <footer class="footer">
     <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex justify-between items-center">
-      <a href="/src/home.html" class="uppercase text-lg font-medium line">Sam Kadrofske</a>
+      <a href="/portfolio/src/home.html" class="uppercase text-lg font-medium line">Sam Kadrofske</a>
       <div class="flex items-center gap-2">
-        <a href="" class="line"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/sam-kadrofske-06233220b" target="_blank" class="line"><i class="fa-brands fa-linkedin-in"></i></a>
       </div>
     </div>
   </footer>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
- <!-- Swiper JS -->
- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="/src/app.js"></script>
-<script>
-  
-</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script src="/portfolio/src/app.js"></script>
 </html>
