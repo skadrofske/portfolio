@@ -1,4 +1,4 @@
-.project-grid {
+/* .project-grid {
     grid-auto-rows: minmax(400px, 35vw);
 }
 
@@ -22,7 +22,7 @@
 .project-container:hover a {
     opacity: 1;
     transition: .3s ease;
-}
+} */
 
 /* .project-container a:hover {
     
@@ -135,10 +135,112 @@
     font-size: 3rem;
 }
 
-.swiper-pagination-progressbar.swiper-pagination-horizontal {
-    height: 2px;
-}
+* {
+    margin: 0;
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  main.ho {
+    position: fixed;
+    top: 0;
+    left: 0;
+  /*  note vh and vw switched  */
+    width: 100vh; 
+    height: 100vw;
+  /*    */
+    transform-origin: top left;
+    transform: rotate(-90deg) translateX(-100vh);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  /*   scroll-snap-type: y mandatory; */
+  }
+  
+  .ho article {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    transform-origin: top left;
+    transform: rotate(90deg) translateY(-100vh);
+  }
+  
+  .ho a {
+    width: calc(100vw / 4);
+    height: 100vh;
+  /*   scroll-snap-align: start; */
+    overflow-y: hidden;
+  /*  backface visibility keeps font from looking weird  */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    outline: 2px solid lightgray;
+  }
 
-.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    background: var(--secondary);
-}
+  .card-content {
+    height: 100%;
+    overflow: hidden;
+    padding: 5rem 1.5rem 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .card-content::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary);
+    transition: .9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+    .ho a:hover h3, .ho a:hover h2 {
+        color: white;
+    }
+
+    .ho a:hover img {
+        opacity: 0;
+    }
+
+    .ho a:hover ::before {
+        top: -100%;
+    }
+
+  .ho a .card-content img {
+    width: 100%;
+    aspect-ratio: 6/7;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    transform-origin: bottom;
+    transition: opacity .4s ease;
+  }
+
+  .ho a h3 {
+    z-index: 1;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    transition: color .3s ease;
+  }
+
+  .ho a h2 {
+    z-index: 1;
+    font-size: 4.2rem;
+    line-height: 4.2rem;
+    font-weight: 200;
+    transition: color .3s ease;
+    text-transform: uppercase;
+  }

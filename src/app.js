@@ -19,49 +19,94 @@ $(document).ready(function () {
             "<span class='letter'>$&</span>"
         );
 
-        anime.timeline().add({
-            targets: ".title .letter",
-            translateY: [100, 0],
-            translateZ: 0,
-            opacity: [0, 1],
-            easing: "easeOutExpo",
-            duration: 2000,
-            delay: (el, i) => 500 + 40 * i,
-        });
-    
-        anime.timeline().add({
-            targets: ".flip",
-            translateY: [100, 0],
-            translateZ: 0,
-            opacity: [0, 1],
-            easing: "easeOutExpo",
-            duration: 2000,
-            delay: (el, i) => 1000,
-        });
-    
-        anime.timeline().add({
-            targets: "#blob",
-            opacity: [0, .6],
-            easing: "easeOutExpo",
-            duration: 3000,
-            delay: (el, i) => 3000,
-        });
-    
-        TweenMax.staggerFrom(
-            ".logo, .nav__links > a",
-            2,
-            {
-              opacity: 0,
-              y: 30,
-              ease: Expo.easeInOut,
-              delay: 1,
-            },
-            0.1
-          );
+        const hometl = gsap.timeline()
+
+        hometl.from(".title .letter", {
+            opacity: 0,
+            delay: .5,
+            stagger: {
+                amount: .5
+            }
+        })
+
+        // tl.from(".title", {
+        //     duration: .5,
+        //     y: "50%",
+        //     ease: Power3.easeInOut,
+        // })
+
+        // tl.fromTo("header", {
+        //     duration: 1,
+        //     height: "100%",
+        //     ease: Power3.easeInOut,
+        // },
+        // {
+        //     height: "85px"
+        // })
+
+
+        // tl.add("end")
+        // .from(".destop-nav__item", {
+        //     y: "50%",
+        //     opacity: 0,
+        //     stagger: {
+        //         amount: .5
+        //     }
+        // }, "end")
+        // .from(".hero-item", {
+        //     y: "50%",
+        //     opacity: 0,
+        //     stagger: {
+        //         amount: .5
+        //     }
+        // }, "end")
     }
     
+    const projectstl = gsap.timeline()
+    const projectstl1 = gsap.timeline()
+    // projectstl.from("img", {
+    //     duration: 1,
+    //     delay: .5,
+    //     height: 0,
+    //     ease: Power3.easeInOut,
+    //     stagger: {
+    //         amount: .7
+    //     }
+    // })
 
-    
+    projectstl.add("card")
+
+    projectstl.from(".ho h2", {
+        delay: .5,
+        duration: .7,
+        x: "-50%",
+        opacity: 0,
+        stagger: {
+            amount: .7
+        }
+    }, "card")
+    projectstl.from(".ho h3", {
+        delay: 1,
+        duration: .5,
+        y: "50%",
+        opacity: 0,
+        stagger: {
+            amount: 1
+        }
+    }, "card")
+
+    projectstl1.set('.ho img',{
+        clipPath:"polygon(0% 100%, 0 100%, 100% 100%)",
+    })
+    .to('.ho img',1, { 
+        clipPath:"polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)", 
+        ease:Expo.easeOut,
+        stagger: {
+            amount: 1
+        }
+    }, 1);
+
+
     
 
     function delay(n) {

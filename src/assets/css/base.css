@@ -10,12 +10,9 @@ body {
   background-color: var(--primary);
 }
 
-section {
-    margin-top: 150px;
-}
 
 .nav-placeholder {
-    height: calc(100vh / 4);
+    height: calc(100vh / 3);
 }
 
 /* width */
