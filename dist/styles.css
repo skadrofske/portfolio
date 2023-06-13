@@ -334,7 +334,7 @@ main.ho {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  outline: 2px solid lightgray;
+  margin: 0 5px;
 }
 
 .card-content {
