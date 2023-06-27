@@ -3,7 +3,7 @@
 }
 
 body, html {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -13,6 +13,13 @@ body {
 
 .nav-placeholder {
     height: calc(100vh / 3);
+}
+
+::selection {
+  background: aquamarine; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: aquamarine; /* Gecko Browsers */
 }
 
 /* width */
@@ -38,16 +45,17 @@ body {
   }
 
   #blob {
-    background: linear-gradient(to right, aquamarine, mediumpurple);
-    height: 40vw;
-    width: 40vw;
+    background: var(--secondary);
+    border-radius: 999px;
+    height: 15vw;
+    width: 15vw;
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
     animation: blob 15s linear infinite, rotate 30s infinite;
-    /* filter: blur(150px); */
-    opacity: .5;
+    filter: blur(100px);
+    opacity: 1;
     z-index: -2;
   }
 
@@ -68,6 +76,6 @@ body {
     position: fixed;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(150px);
+    backdrop-filter: blur(50px);
     z-index: -1;
   }

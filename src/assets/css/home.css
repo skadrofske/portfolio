@@ -1,26 +1,14 @@
-.text-scroll {
-    font-size: 10vw;
-    line-height: 25vw;
-    white-space: nowrap;
-    /* color: gray; */
-    background: linear-gradient(to right, aquamarine, mediumpurple, aquamarine, mediumpurple, aquamarine);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    pointer-events: none;
-    background-size: 200%;
-    animation: scrollText 40s infinite linear, background-pan 10s linear infinite;
-}
-
-@keyframes scrollText {
-    from   { transform: translateX(0%); }
-    to { transform: translateX(-100%); }
-}
-
-@keyframes background-pan {
-    from   { background-position: 0% center; }
-    to { background-position: -200% center; }
-}
-
 .letter {
     display: inline-block;
+}
+
+
+.title-container {
+    color: var(--secondary);
+    mix-blend-mode: color-dodge;
+    width: 100%;
+}
+
+.title-container path {
+    fill: rgb(112, 112, 112);
 }

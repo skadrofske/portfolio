@@ -8,13 +8,13 @@ header.scrolling-active, header.blured {
   height: 5rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
   /* background-color: white; */
-  background-color: rgba(236, 236, 236, 0.25);
+  background-color: rgba(23, 23, 23, 0.25);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
 }
 
-.nav a {
-  color: var(--black);
+.nav {
+  color: var(--secondary);
 }
 
 a.line {
@@ -27,7 +27,7 @@ a.line::after {
   display: block;
   height: 2px;
   width: 0;
-  background-color: var(--black);
+  background-color: var(--secondary);
   transition: .3s ease;
 }
 
@@ -37,7 +37,7 @@ a.line:hover::after {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: var(--black);
+  background-color: var(--secondary);
 }
 
 a.line.active::after {
@@ -46,7 +46,7 @@ a.line.active::after {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: var(--black);
+  background-color: var(--secondary);
 }
 
 .logo-item {
@@ -62,7 +62,7 @@ a.line.active::after {
   will-change: transform;
   transform-style: preserve-3d;
   transition: .5s;
-  transition-delay: calc(0.04s * var(--index));
+  transition-delay: calc(0.07s * var(--index));
   transform-origin: bottom;
   display: inline-block;
 }
@@ -71,7 +71,7 @@ a.line.active::after {
   will-change: transform;
   transform-style: preserve-3d;
   transition: .5s;
-  transition-delay: calc(0.04s * var(--index));
+  transition-delay: calc(0.07s * var(--index));
   transform-origin: top;
   display: inline-block;
   transform: translate3d(0, 100%, 0) rotateX(-90deg);
@@ -90,63 +90,18 @@ footer {
   margin-bottom: 100px;
 }
 
-.text-scroll {
-  font-size: 10vw;
-  line-height: 25vw;
-  white-space: nowrap;
-  /* color: gray; */
-  background: linear-gradient(to right, aquamarine, mediumpurple, aquamarine, mediumpurple, aquamarine);
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  pointer-events: none;
-  background-size: 200%;
-  -webkit-animation: scrollText 40s infinite linear, background-pan 10s linear infinite;
-          animation: scrollText 40s infinite linear, background-pan 10s linear infinite;
-}
-
-@-webkit-keyframes scrollText {
-  from   {
-    transform: translateX(0%);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes scrollText {
-  from   {
-    transform: translateX(0%);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@-webkit-keyframes background-pan {
-  from   {
-    background-position: 0% center;
-  }
-
-  to {
-    background-position: -200% center;
-  }
-}
-
-@keyframes background-pan {
-  from   {
-    background-position: 0% center;
-  }
-
-  to {
-    background-position: -200% center;
-  }
-}
-
 .letter {
   display: inline-block;
+}
+
+.title-container {
+  color: var(--secondary);
+  mix-blend-mode: color-dodge;
+  width: 100%;
+}
+
+.title-container path {
+  fill: rgb(112, 112, 112);
 }
 
 /* .project-grid {
@@ -331,57 +286,60 @@ main.ho {
   /*  backface visibility keeps font from looking weird  */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  color: var(--secondary);
+}
+
+.ho a:not(:first-child):not(:last-child)  {
   margin: 0 5px;
+}
+
+.ho a:first-child  {
+  margin-right: 5px;
+}
+
+.ho a:last-child  {
+  margin-left: 5px;
 }
 
 .card-content {
   height: 100%;
   overflow: hidden;
-  padding: 5rem 1.5rem 1rem 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   position: relative;
 }
 
-.card-content::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--primary);
-  transition: .9s cubic-bezier(0.075, 0.82, 0.165, 1);
+.card-title {
+  padding: 1rem;
 }
 
-.ho a:hover h3, .ho a:hover h2 {
-  color: white;
+.ho a.hovered h3, .ho a.hovered h2 {
+  color: var(--secondary);
 }
 
-.ho a:hover img {
-  opacity: 0;
-}
-
-.ho a:hover ::before {
-  top: -100%;
-}
+/* .ho a.hovered ::before {
+        top: -100%;
+    } */
 
 .ho a .card-content img {
   width: 100%;
-  aspect-ratio: 6/7;
+  height: 100%;
+  position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
   transform-origin: bottom;
   transition: opacity .4s ease;
+  -webkit-clip-path: polygon(0% 69.75%, 100% 69.75%, 100% 69.75%, 0% 69.75%);
+          clip-path: polygon(0% 69.75%, 100% 69.75%, 100% 69.75%, 0% 69.75%);
+  transition: filter .3s ease-in;
+  filter: brightness(1);
+}
+
+.ho a.hovered .card-content img {
+  filter: brightness(.7);
 }
 
 .ho a h3 {
@@ -390,16 +348,18 @@ main.ho {
   line-height: 1.4rem;
   text-transform: uppercase;
   font-weight: 300;
-  transition: color .3s ease;
+  opacity: 0;
+  transform: translate(0 50%);
 }
 
 .ho a h2 {
   z-index: 1;
-  font-size: 4.2rem;
-  line-height: 4.2rem;
+  font-size: 3.8rem;
+  line-height: 4rem;
   font-weight: 200;
-  transition: color .3s ease;
   text-transform: uppercase;
+  opacity: 0;
+  transform: translate(-100% 0);
 }
 
 * {
@@ -407,7 +367,7 @@ main.ho {
 }
 
 body, html {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -416,6 +376,21 @@ body {
 
 .nav-placeholder {
   height: calc(100vh / 3);
+}
+
+::-moz-selection {
+  background: aquamarine;
+  /* WebKit/Blink Browsers */
+}
+
+::selection {
+  background: aquamarine;
+  /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: aquamarine;
+  /* Gecko Browsers */
 }
 
 /* width */
@@ -446,17 +421,18 @@ body {
 }
 
 #blob {
-  background: linear-gradient(to right, aquamarine, mediumpurple);
-  height: 40vw;
-  width: 40vw;
+  background: var(--secondary);
+  border-radius: 999px;
+  height: 15vw;
+  width: 15vw;
   position: absolute;
   left: 50%;
   top: 50%;
   translate: -50% -50%;
   -webkit-animation: blob 15s linear infinite, rotate 30s infinite;
           animation: blob 15s linear infinite, rotate 30s infinite;
-  /* filter: blur(150px); */
-  opacity: .5;
+  filter: blur(100px);
+  opacity: 1;
   z-index: -2;
 }
 
@@ -528,18 +504,21 @@ body {
   position: fixed;
   height: 100%;
   width: 100%;
-  -webkit-backdrop-filter: blur(150px);
-          backdrop-filter: blur(150px);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
   z-index: -1;
 }
 
 .h1 {
   font-size: clamp(48px, 15vw, 144px);
   line-height: clamp(48px, 15vw, 144px);
+  white-space: nowrap;
+  color: var(--secondary);
 }
 
 .h2 {
   font-size: clamp(48px, 15vw, 144px);
+  color: var(--secondary);
 }
 
 .flip {
@@ -655,8 +634,8 @@ body {
 
 :root {
   --black: rgb(20, 20, 20);
-  --primary: white;
-  --secondary: rgb(20, 20, 20);
+  --primary: rgb(20, 20, 20);
+  --secondary: white;
   --nav-height: 7rem;
 }
 
@@ -1308,10 +1287,6 @@ video {
   max-width: 80rem;
 }
 
-.cursor-default {
-  cursor: default;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1366,10 +1341,6 @@ video {
   padding-right: 1rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1401,14 +1372,6 @@ video {
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .hover\:text-gray-700:hover {

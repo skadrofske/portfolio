@@ -1,6 +1,6 @@
 :root {
     --black: rgb(20, 20, 20);
-    --primary: white;
-    --secondary: rgb(20, 20, 20);
+    --primary: rgb(20, 20, 20);
+    --secondary: white;
     --nav-height: 7rem;
 }

@@ -12,6 +12,48 @@ $(document).ready(function () {
         }
     }
 
+    gsap.from(".clip-top, .clip-bottom", 2, {
+        delay: 1,
+        height: "50vh",
+        ease: "power4.inOut",
+    })
+
+    gsap.to(".marquee", 3.5, {
+        delay: 0.75,
+        top: "50%",
+        ease: "power4.inOut",
+    })
+
+    gsap.from(".clip-top .marquee, .clip-bottom .marquee", 5, {
+        delay: 1,
+        left: "200%",
+        ease: "power3.inOut",
+    })
+
+    gsap.from(".clip-center .marquee", 5, {
+        delay: 1,
+        left: "-50%",
+        ease: "power3.inOut",
+    })
+
+    gsap.to(".clip-top", 2, {
+        delay: 6,
+        clipPath: "inset(0 0 100% 0)",
+        ease: "power4.inOut",
+    })
+
+    gsap.to(".clip-bottom", 2, {
+        delay: 6,
+        clipPath: "inset(100% 0 0 0)",
+        ease: "power4.inOut",
+    })
+
+    gsap.to(".clip-top .marquee, .clip-bottom .marquee, .clip-center .marquee span:not(.kadrofske)", 1, {
+        delay: 6,
+        opacity: 0,
+        ease: "power2.inOut",
+    })
+
     const textWrapper = document.querySelector(".title");
     if(textWrapper) {
         textWrapper.innerHTML = textWrapper.textContent.replace(
@@ -21,13 +63,15 @@ $(document).ready(function () {
 
         const hometl = gsap.timeline()
 
-        hometl.from(".title .letter", {
-            opacity: 0,
-            delay: .5,
-            stagger: {
-                amount: .5
-            }
-        })
+
+
+        // hometl.from(".title .letter", {
+        //     opacity: 0,
+        //     delay: .5,
+        //     stagger: {
+        //         amount: .5
+        //     }
+        // })
 
         // tl.from(".title", {
         //     duration: .5,
@@ -61,45 +105,44 @@ $(document).ready(function () {
         //     }
         // }, "end")
     }
+
+    gsap.registerPlugin(ScrollTrigger)
     
     const projectstl = gsap.timeline()
     const projectstl1 = gsap.timeline()
-    // projectstl.from("img", {
-    //     duration: 1,
-    //     delay: .5,
-    //     height: 0,
-    //     ease: Power3.easeInOut,
-    //     stagger: {
-    //         amount: .7
-    //     }
-    // })
 
     projectstl.add("card")
 
-    projectstl.from(".ho h2", {
-        delay: .5,
-        duration: .7,
+    projectstl.fromTo(".ho h2", {
         x: "-50%",
         opacity: 0,
+    },
+    {
+        delay: .5,
+        duration: .7,
+        x: "0%",
+        opacity: 1,
         stagger: {
             amount: .7
         }
     }, "card")
-    projectstl.from(".ho h3", {
-        delay: 1,
-        duration: .5,
+    projectstl.fromTo(".ho h3", {
         y: "50%",
         opacity: 0,
+    },
+    {
+        delay: 1,
+        duration: .5,
+        y: "0%",
+        opacity: 1,
         stagger: {
             amount: 1
         }
     }, "card")
+    
 
-    projectstl1.set('.ho img',{
-        clipPath:"polygon(0% 100%, 0 100%, 100% 100%)",
-    })
-    .to('.ho img',1, { 
-        clipPath:"polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)", 
+    projectstl1.to('.ho img',1, { 
+        clipPath:"polygon(0% 12.75%, 100% 12.75%, 100% 69.75%, 0% 69.75%)", 
         ease:Expo.easeOut,
         stagger: {
             amount: 1
@@ -107,16 +150,40 @@ $(document).ready(function () {
     }, 1);
 
 
+    const cards = document.querySelectorAll(".ho a");
+
+    cards.forEach(card => {
+        const image = card.querySelector("img")
+        const cardHover = gsap.to(image, {
+            paused: true,
+            duration: .3,
+            clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: Sine.easeIn,
+        });
+        card.onmouseover = function() {
+            if(projectstl1.isActive() === false) {
+                card.classList.add("hovered")
+                cardHover.play()
+            }
+        };
+    
+        card.onmouseout = function() {
+            if(projectstl1.isActive() === false) {
+                card.classList.remove("hovered")
+                cardHover.reverse()
+            }
+        }
+    });
     
 
-    function delay(n) {
-        n = n || 2000;
-        return new Promise((done) => {
-            setTimeout(() => {
-                done();
-            }, n)
-        })
-    }
+    // function delay(n) {
+    //     n = n || 2000;
+    //     return new Promise((done) => {
+    //         setTimeout(() => {
+    //             done();
+    //         }, n)
+    //     })
+    // }
 
     // function pageTranstion() {
     //     var tl = gsap.timeline();
@@ -213,25 +280,4 @@ $(document).ready(function () {
     // if(projectDesignContainer.length % 2 == 1) {
     //     projectDesignContainer[1].classList.add("span-2")
     // }
-    
-
-    // (function () {
-    //     const scroll = new LocomotiveScroll({
-    //         el: document.querySelector('[data-scroll-container]'),
-    //         smooth: true
-    //     });
-    // })();
-    
-    // $('.js-tilt').tilt({
-    //     rmaxTilt:        20,
-    //     perspective:    5000,   // Transform perspective, the lower the more extreme the tilt gets.
-    //     easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
-    //     scale:          1,      // 2 = 200%, 1.5 = 150%, etc..
-    //     speed:          300,    // Speed of the enter/exit transition.
-    //     transition:     true,   // Set a transition on enter/exit.
-    //     disableAxis:    null,   // What axis should be disabled. Can be X or Y.
-    //     reset:          true,   // If the tilt effect has to be reset on exit.
-    //     glare:          false,  // Enables glare effect
-    //     maxGlare:       1       // From 0 - 1.
-    // })
 });

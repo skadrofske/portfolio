@@ -176,55 +176,59 @@
   /*  backface visibility keeps font from looking weird  */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    color: var(--secondary);
+  }
+
+  .ho a:not(:first-child):not(:last-child)  {
     margin: 0 5px;
+  }
+
+  .ho a:first-child  {
+    margin-right: 5px;
+  }
+
+  .ho a:last-child  {
+    margin-left: 5px;
   }
 
   .card-content {
     height: 100%;
     overflow: hidden;
-    padding: 5rem 1.5rem 1rem 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: relative;
   }
 
-  .card-content::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: var(--primary);
-    transition: .9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  .card-title {
+    padding: 1rem;
   }
 
-    .ho a:hover h3, .ho a:hover h2 {
-        color: white;
+    .ho a.hovered h3, .ho a.hovered h2 {
+        color: var(--secondary);
     }
 
-    .ho a:hover img {
-        opacity: 0;
-    }
 
-    .ho a:hover ::before {
+
+    /* .ho a.hovered ::before {
         top: -100%;
-    }
+    } */
 
   .ho a .card-content img {
     width: 100%;
-    aspect-ratio: 6/7;
+    height: 100%;
+    position: absolute;
     object-fit: cover;
     object-position: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
     transform-origin: bottom;
     transition: opacity .4s ease;
+    clip-path: polygon(0% 69.75%, 100% 69.75%, 100% 69.75%, 0% 69.75%);
+    transition: filter .3s ease-in;
+    filter: brightness(1);
+  }
+
+  .ho a.hovered .card-content img {
+    filter: brightness(.7);
   }
 
   .ho a h3 {
@@ -233,7 +237,8 @@
     line-height: 1.4rem;
     text-transform: uppercase;
     font-weight: 300;
-    transition: color .3s ease;
+    opacity: 0;
+    transform: translate(0 50%);
   }
 
   .ho a h2 {
@@ -241,6 +246,7 @@
     font-size: 3.8rem;
     line-height: 4rem;
     font-weight: 200;
-    transition: color .3s ease;
     text-transform: uppercase;
+    opacity: 0;
+    transform: translate(-100% 0);
   }
