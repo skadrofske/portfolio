@@ -10,5 +10,37 @@
 }
 
 .title-container path {
-    fill: rgb(112, 112, 112);
+    fill: rgb(155, 155, 155);
+}
+
+.logo-loader {
+    left: 50%;
+    transform: scale(3) translateX(-50%) translateY(15vh);
+    transform-origin: center left;
+    position: relative;
+}
+
+.loader-text-wrapper {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.loader-text-letter {
+    opacity: 1;
+}
+
+.loader-text {
+    display: flex;
+}
+
+/* .logo-loader .loader-text span {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+} */
+
+.home-item {
+    opacity: 0;
+    transform: translateY(50%);
 }

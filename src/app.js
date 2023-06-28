@@ -1,5 +1,60 @@
 $(document).ready(function () {
 
+    const loadertl = gsap.timeline()
+
+    loadertl.from(".loader-text-letter", {
+        delay: .3,
+        duration: .4,
+        y: "100%",
+        opacity: 0,
+        stagger: {
+            amount: .4
+        },
+        ease: "power4.inOut",
+    })
+
+    loadertl.to(".loader-text-wrapper .loader-text-letter", {
+        delay: 1,
+        duration: 1,
+        duration: .2,
+        y: "100%",
+        opacity: 0,
+        stagger: {
+            amount: .2
+        },
+        ease: "power4.inOut",
+    })
+
+    loadertl.to(".loader-text-wrapper", {
+        duration: 1,
+        width: 0,
+        display: "none",
+        ease: "power4.inOut",
+    })
+
+    loadertl.to(".logo-loader", {
+        delay: .8,
+        duration: .7,
+        top: "0%",
+        y: "0%",
+        scale: "1",
+        x: "0%",
+        left: "0%",
+        ease: "power4.easeIn",
+    })
+
+    loadertl.to(".home-item", {
+        opacity: 1,
+        y: "0%",
+        stagger: {
+            amount: .4
+        }
+    })
+
+    loadertl.to("#blob", {
+        opacity: 1,
+    })
+
     const blob = document.getElementById("blob")
 
     document.body.onpointermove = event => {

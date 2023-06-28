@@ -9,7 +9,7 @@
     "locomotive-scroll": "^4.1.4"
   },
   "scripts": {
-    "build": "tailwind build src/input.css -o dist/styles.css"
+    "build": "tailwind build -i src/input.css -o dist/styles.css"
   }
 }
 
