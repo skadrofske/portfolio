@@ -169,7 +169,7 @@
   }
   
   .ho a {
-    width: calc(100vw / 4);
+    width: calc(100vw / 3.75);
     height: 100vh;
   /*   scroll-snap-align: start; */
     overflow-y: hidden;
@@ -177,6 +177,31 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     color: var(--secondary);
+  }
+
+
+  @media (max-width: 1200px) {
+    .ho a {
+      width: calc(100vw / 2.75);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .ho a {
+      width: calc(100vw / 1.75);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ho a {
+      width: calc(100vw / 1.25);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .ho a {
+      width: calc(100vw / 1.1);
+    }
   }
 
   .ho a:not(:first-child):not(:last-child)  {
